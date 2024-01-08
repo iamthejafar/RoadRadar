@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "115253324942",
+    "project_id": "roadsync-64567",
+    "storage_bucket": "roadsync-64567.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115253324942:android:52cd483dba15749e56addf",
+        "android_client_info": {
+          "package_name": "com.example.roadsync"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABp3hOKtsgHw886_AtoQJX4iIb6n-k7lA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
