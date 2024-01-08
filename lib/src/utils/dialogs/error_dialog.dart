@@ -16,7 +16,7 @@ void showErrorDialog(BuildContext context, {required String message}) {
           width: MediaQuery.of(context).size.width * 0.7,
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: whiteColor,
             borderRadius: BorderRadius.circular(12),
           ),
           child: Column(

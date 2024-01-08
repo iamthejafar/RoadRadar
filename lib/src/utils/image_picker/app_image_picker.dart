@@ -6,25 +6,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../constants/colors.dart';
+
 final mediaProvider = Provider((ref) => MediaPicker());
 
 class MediaPicker {
-  // Future<File?> captureMedia({
-  //   PickType pickType = PickType.image,
-  //   double quality = 1,
-  //   CropAspectRatio? aspectRatio = CropAspectRatio.custom,
-  // }) async {
-  //   final medias = await ImagesPicker.openCamera(
-  //     pickType: pickType,
-  //     quality: quality,
-  //     maxTime: 1800,
-  //     cropOpt: CropOption(aspectRatio: aspectRatio),
-  //   );
-  //   if (medias != null) {
-  //     return File(medias[0].path);
-  //   }
-  //   return null;
-  // }
 
   Future<File?> captureMedia({
     ImageSource source = ImageSource.camera,
@@ -64,11 +50,11 @@ class MediaPicker {
   }
 
   Future<File?> pickImage({
-    int quality = 1,
+    int quality =50,
   }) async {
     final data = await ImagePicker().pickImage(
       source: ImageSource.gallery,
-        imageQuality: 50
+        imageQuality: quality
     );
     if (data != null) {
       return File(data.path);
@@ -77,17 +63,17 @@ class MediaPicker {
   }
 
   Future<List<File>> pickMultiImage(
-      {double quality = 1,
+      {int quality = 50,
       int count = 10,
       required BuildContext context}) async {
     final List<File> images = [];
 
-    final data = await ImagePicker().pickMultiImage(imageQuality: 50);
+    final data = await ImagePicker().pickMultiImage(imageQuality: quality);
 
     if (data.length > count) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         backgroundColor: Colors.red,
-          content: Center(child: Text("Cannot pick more than $count images"))));
+          content: Center(child: Text("Cannot pick more than $count images"),),),);
       return [];
     }
 
@@ -255,7 +241,7 @@ Future<T?> buildShowModalBottomSheet<T>(
     BuildContext context,
     Widget Function(ScrollController controller) builder, {
       double initialHeight = 0.9,
-      Color bottomsheetcolor = Colors.white,
+      Color bottomsheetcolor = whiteColor,
       bool useRootNavigator = true,
     }) {
   return showModalBottomSheet<T>(

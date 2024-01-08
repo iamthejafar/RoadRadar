@@ -51,7 +51,7 @@ class DashedRect extends StatelessWidget {
   final double gap;
 
   DashedRect(
-      {this.color = Colors.black, this.strokeWidth = 1.0, this.gap = 5.0});
+      {this.color = blackColor, this.strokeWidth = 1.0, this.gap = 5.0});
 
   @override
   Widget build(BuildContext context) {

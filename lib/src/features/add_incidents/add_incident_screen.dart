@@ -84,7 +84,7 @@ class _AddIssueScreenState extends ConsumerState<AddIssueScreen> {
               Text(
                 'Select Hazard Type',
                 style: TextStyle(
-                    color: Colors.black,
+                    color: blackColor,
                     fontWeight: FontWeight.w500,
                     fontSize: 14.sp),
               ),
@@ -103,7 +103,7 @@ class _AddIssueScreenState extends ConsumerState<AddIssueScreen> {
               Text(
                 'Add Description',
                 style: TextStyle(
-                    color: Colors.black,
+                    color: blackColor,
                     fontWeight: FontWeight.w500,
                     fontSize: 14.sp),
               ),

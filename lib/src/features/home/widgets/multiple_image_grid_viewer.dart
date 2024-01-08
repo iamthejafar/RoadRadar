@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:traffic_safety/src/constants/colors.dart';
 
 import '../../../app/router/router.gr.dart';
 
@@ -61,7 +62,7 @@ class MultipleImageGridViewer extends ConsumerWidget {
                       if (images.length == 2 || images.length > 4)
                         Container(
                           width: 1,
-                          color: Colors.white,
+                          color: whiteColor,
                         ),
                       if (images.length == 2 || images.length > 4)
                         Expanded(
@@ -88,7 +89,7 @@ class MultipleImageGridViewer extends ConsumerWidget {
                 if (images.length > 2)
                   Container(
                     width: 1,
-                    color: Colors.white,
+                    color: whiteColor,
                   ),
                 if (images.length > 2)
                   Expanded(
@@ -119,7 +120,7 @@ class MultipleImageGridViewer extends ConsumerWidget {
                           Container(
                             width: 1,
                             height: 2,
-                            color: Colors.white,
+                            color: whiteColor,
                           ),
                         if (images.length > 2)
                           Expanded(
@@ -145,7 +146,7 @@ class MultipleImageGridViewer extends ConsumerWidget {
                         if (images.length > 3)
                           Container(
                             width: 1,
-                            color: Colors.white,
+                            color: whiteColor,
                           ),
                         if (images.length > 3)
                           Expanded(
@@ -166,14 +167,14 @@ class MultipleImageGridViewer extends ConsumerWidget {
                                 if (images.length > 5)
                                   Container(
                                     decoration: const BoxDecoration(
-                                      color: Colors.black54,
+                                      color: blackColor,
                                     ),
                                     child: Center(
                                         child: Text(
                                           "+${images.length - 5}",
                                           style: const TextStyle(
                                             fontSize: 20,
-                                            color: Colors.white,
+                                            color: whiteColor,
                                           ),
                                         )),
                                   ),

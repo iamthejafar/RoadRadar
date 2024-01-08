@@ -9,7 +9,7 @@ void successDialog(BuildContext context,
   showDialog(
     context: context,
     builder: (_) => Dialog(
-      backgroundColor: Colors.white,
+      backgroundColor: whiteColor,
       child: ConstrainedBox(
         constraints: BoxConstraints(maxHeight: 270.h),
         child: Column(
@@ -23,7 +23,7 @@ void successDialog(BuildContext context,
                 color: mediumGreen,
                 shape: BoxShape.circle,
               ),
-              child: const Center(child: Icon(Icons.check,size: 50, color: Colors.white,)),
+              child: const Center(child: Icon(Icons.check,size: 50, color: whiteColor,)),
             ),
             14.verticalSpace,
             Text(

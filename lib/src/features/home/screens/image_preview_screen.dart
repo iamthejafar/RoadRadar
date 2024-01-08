@@ -1,6 +1,8 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 
+import '../../../constants/colors.dart';
+
 
 
 
@@ -28,8 +30,8 @@ class _ImagePreviewScreenState extends State<ImagePreviewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.black,iconTheme: const IconThemeData(color: Colors.white),),
-      backgroundColor: Colors.black,
+      appBar: AppBar(backgroundColor: blackColor,iconTheme: const IconThemeData(color: whiteColor),),
+      backgroundColor: blackColor,
       body: PageView(
         children: [
           for(final url in widget.urls)
