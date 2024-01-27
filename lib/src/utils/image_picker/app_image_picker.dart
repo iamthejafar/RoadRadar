@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../../constants/colors.dart';
+import '../../core/app/theme/colors.dart';
 
 final mediaProvider = Provider((ref) => MediaPicker());
 
@@ -241,7 +241,7 @@ Future<T?> buildShowModalBottomSheet<T>(
     BuildContext context,
     Widget Function(ScrollController controller) builder, {
       double initialHeight = 0.9,
-      Color bottomsheetcolor = whiteColor,
+      Color bottomsheetcolor = white,
       bool useRootNavigator = true,
     }) {
   return showModalBottomSheet<T>(

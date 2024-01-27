@@ -1,8 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'dart:io';
 
-final pickedImageProvider = StateNotifierProvider.family<PickedImageNotifier, List<File>,String>((ref, id) => PickedImageNotifier(ref, id: id));
-
+final pickedImageProvider = StateNotifierProvider
+    .family<PickedImageNotifier, List<File>, String>((ref, id) {
+  return PickedImageNotifier(ref, id: id);
+});
 
 class PickedImageNotifier extends StateNotifier<List<File>> {
   PickedImageNotifier(this.ref, {required this.id}) : super([]);
@@ -10,7 +12,6 @@ class PickedImageNotifier extends StateNotifier<List<File>> {
   final String id;
 
   final Ref ref;
-
 
   setImages(List<File> images) {
     state = images;

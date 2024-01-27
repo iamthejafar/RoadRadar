@@ -1,4 +1,4 @@
-name: traffic_safety
+name: roadradar
 description: "A new Flutter project."
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -29,6 +29,12 @@ dependencies:
   location: ^5.0.3
   flutter_map: ^6.1.0
   latlong2: ^0.9.0
+  flutter_svg: ^2.0.9
+  animated_text_kit: ^4.2.2
+  url_launcher: ^6.2.3
+  dio: ^5.4.0
+  retrofit: ^4.0.3
+  retrofit_generator: ^8.0.6
 
 
 dev_dependencies:
@@ -42,6 +48,9 @@ dev_dependencies:
 flutter:
 
   uses-material-design: true
+
+  assets:
+    - assets/images/
 
 
   fonts:

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:traffic_safety/src/constants/colors.dart';
+import 'package:roadradar/src/core/app/theme/app_text_style.dart';
 
 
 
@@ -25,11 +25,8 @@ void failedDialog(BuildContext context,
             ),
             14.verticalSpace,
             Text(
-              "Successful",
-              style: TextStyle(
-                fontSize: 20.sp,
-                fontWeight: FontWeight.w700,
-              ),
+              "Failed",
+              style: AppTextStyle.k20pxBlackW600,
             ),
             60.verticalSpace,
             Text(

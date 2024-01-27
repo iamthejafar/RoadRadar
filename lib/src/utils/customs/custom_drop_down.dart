@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:traffic_safety/src/constants/colors.dart';
+
+import '../../core/app/theme/colors.dart';
 
 
 class CustomDropDownButton extends StatefulWidget {
@@ -36,7 +37,7 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
               isExpanded: true,
               hint: Text(widget.hintText,
                   style: textTheme.bodyLarge!
-                      .copyWith(color: blueColor, fontSize: 12.sp)),
+                      .copyWith(color: mediumBlue, fontSize: 12.sp)),
               items: widget.items
                   .map<DropdownMenuItem>((item) => DropdownMenuItem(
                 value: item,

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:roadradar/src/core/app/theme/app_text_style.dart';
 
-import '../colors.dart';
+import '../../core/app/theme/colors.dart';
 
 
 
@@ -15,19 +16,16 @@ class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.r)
-          ),
-          minimumSize: Size(double.infinity, 40),
-        ),
+        // style: ElevatedButton.styleFrom(
+        //   shape: RoundedRectangleBorder(
+        //       borderRadius: BorderRadius.circular(10.r)
+        //   ),
+        //   minimumSize: const Size(double.infinity, 40),
+        // ),
         onPressed: onTap,
         child: Text(
           text,
-          style: TextStyle(
-              color: blackColor,
-              fontWeight: FontWeight.w500,
-              fontSize: 14.sp),
+          // style: AppTextStyle.k14pxBlackW500,
         ));
   }
 }

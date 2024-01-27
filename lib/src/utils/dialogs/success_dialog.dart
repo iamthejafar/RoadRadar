@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:traffic_safety/src/constants/colors.dart';
+
+import '../../core/app/theme/colors.dart';
 
 
 
@@ -9,7 +10,7 @@ void successDialog(BuildContext context,
   showDialog(
     context: context,
     builder: (_) => Dialog(
-      backgroundColor: whiteColor,
+      backgroundColor: white,
       child: ConstrainedBox(
         constraints: BoxConstraints(maxHeight: 270.h),
         child: Column(
@@ -20,10 +21,10 @@ void successDialog(BuildContext context,
               width: 82,
               height: 82,
               decoration: const BoxDecoration(
-                color: mediumGreen,
+                color: mediumYellow,
                 shape: BoxShape.circle,
               ),
-              child: const Center(child: Icon(Icons.check,size: 50, color: whiteColor,)),
+              child: const Center(child: Icon(Icons.check,size: 50, color: white,)),
             ),
             14.verticalSpace,
             Text(
@@ -45,7 +46,7 @@ void successDialog(BuildContext context,
               padding: EdgeInsets.symmetric(vertical: 30.h),
               child: ElevatedButton(
                 onPressed: onPressed ?? () => Navigator.pop(context),
-                child: const Text('Ok',style: TextStyle(color: blackColor, fontWeight: FontWeight.w500),),
+                child: const Text('Ok',style: TextStyle(color: black, fontWeight: FontWeight.w500),),
               ),
             )
           ],

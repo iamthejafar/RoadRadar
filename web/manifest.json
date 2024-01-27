@@ -1,6 +1,6 @@
 {
-    "name": "traffic_safety",
-    "short_name": "traffic_safety",
+    "name": "roadradar",
+    "short_name": "roadradar",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

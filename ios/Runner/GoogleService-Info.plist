@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyARP0ow7TEIrYhVWfqCr6tVPNyYJhzXFOY</string>
+	<string>AIzaSyAeOpSJOzYeHs-9y_KxQEDNZviZz_e6bB8</string>
 	<key>GCM_SENDER_ID</key>
-	<string>115253324942</string>
+	<string>142876805959</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.trafficSafety</string>
+	<string>com.jrd.roadradar</string>
 	<key>PROJECT_ID</key>
-	<string>roadsync-64567</string>
+	<string>road-radar-4ef2d</string>
 	<key>STORAGE_BUCKET</key>
-	<string>roadsync-64567.appspot.com</string>
+	<string>road-radar-4ef2d.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:115253324942:ios:b4c6a77e0b7697cc56addf</string>
+	<string>1:142876805959:ios:4bf0b8c91fc679eec8da62</string>
 </dict>
 </plist>

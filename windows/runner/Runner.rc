@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "traffic_safety" "\0"
+            VALUE "CompanyName", "com.jrd" "\0"
+            VALUE "FileDescription", "roadradar" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "traffic_safety" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "traffic_safety.exe" "\0"
-            VALUE "ProductName", "traffic_safety" "\0"
+            VALUE "InternalName", "roadradar" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 com.jrd. All rights reserved." "\0"
+            VALUE "OriginalFilename", "roadradar.exe" "\0"
+            VALUE "ProductName", "roadradar" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

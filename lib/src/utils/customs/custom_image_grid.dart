@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reorderable_grid/reorderable_grid.dart';
-import 'package:traffic_safety/src/constants/colors.dart';
 
 import '../../../global_providers.dart';
+import '../../core/app/theme/colors.dart';
 import '../image_picker/app_image_picker.dart';
 import 'custom_dotted_container.dart';
 
@@ -71,19 +71,19 @@ class _CustomImagePickerState extends ConsumerState<CustomImageGrid> {
                 ? widget.hintText
                 : '${widget.hintText} (${_pickedImages.length}/${widget.length})',
             border: OutlineInputBorder(
-                borderSide: const BorderSide(color: blackColor),
+                borderSide: const BorderSide(color: black),
                 borderRadius: BorderRadius.circular(10)),
             enabledBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: blackColor),
+                borderSide: const BorderSide(color: black),
                 borderRadius: BorderRadius.circular(10)),
             focusedBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: blueColor),
+                borderSide: const BorderSide(color: mediumBlue),
                 borderRadius: BorderRadius.circular(15)),
             errorBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: blueColor),
+                borderSide: const BorderSide(color: mediumBlue),
                 borderRadius: BorderRadius.circular(15)),
             filled: true,
-            fillColor: greyColor,
+            fillColor: grey,
             labelStyle: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500)
         ),
         child: ReorderableGridView.extent(
@@ -128,7 +128,7 @@ class _CustomImagePickerState extends ConsumerState<CustomImageGrid> {
                         child: Container(
                           decoration: BoxDecoration(
                               color: Colors.lightGreen,
-                              border: Border.all(color: deepGreen),
+                              border: Border.all(color: deepYellow),
                               shape: BoxShape.circle),
                           child: Icon(
                             Icons.close,
@@ -173,7 +173,7 @@ class _CustomImagePickerState extends ConsumerState<CustomImageGrid> {
                       height: double.infinity,
                       child: Icon(
                         Icons.add,
-                        color: blueColor,
+                        color: mediumBlue,
                       )),
                 ),
               ),

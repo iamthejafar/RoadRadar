@@ -1,7 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:traffic_safety/src/constants/colors.dart';
+
+import '../../core/app/theme/colors.dart';
 
 void showErrorDialog(BuildContext context, {required String message}) {
   showDialog(
@@ -16,7 +17,7 @@ void showErrorDialog(BuildContext context, {required String message}) {
           width: MediaQuery.of(context).size.width * 0.7,
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           decoration: BoxDecoration(
-            color: whiteColor,
+            color: white,
             borderRadius: BorderRadius.circular(12),
           ),
           child: Column(
@@ -27,7 +28,7 @@ void showErrorDialog(BuildContext context, {required String message}) {
                 message,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    color: blackColor,
+                    color: black,
                     fontWeight: FontWeight.w500,
                     fontSize: 14.sp),
               ),
@@ -39,7 +40,7 @@ void showErrorDialog(BuildContext context, {required String message}) {
                 child: Text(
                   'Ok',
                   style: TextStyle(
-                      color: blackColor,
+                      color: black,
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w500),
                 ),

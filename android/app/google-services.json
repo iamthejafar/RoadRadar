@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "115253324942",
-    "project_id": "roadsync-64567",
-    "storage_bucket": "roadsync-64567.appspot.com"
+    "project_number": "142876805959",
+    "project_id": "road-radar-4ef2d",
+    "storage_bucket": "road-radar-4ef2d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:115253324942:android:52cd483dba15749e56addf",
+        "mobilesdk_app_id": "1:142876805959:android:d463f11e7c428202c8da62",
         "android_client_info": {
-          "package_name": "com.example.roadsync"
+          "package_name": "com.jrd.roadradar"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyABp3hOKtsgHw886_AtoQJX4iIb6n-k7lA"
+          "current_key": "AIzaSyDVKnmMC495nmjLqNpclUDNQcb1tHwzEPA"
         }
       ],
       "services": {

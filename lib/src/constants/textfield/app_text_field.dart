@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../colors.dart';
+import '../../core/app/theme/colors.dart';
 
 
 
@@ -28,7 +28,7 @@ class AppTextField extends StatelessWidget {
     this.showBorder = true,
     this.onSubmit,
     this.prefixIcon,
-    super.key,  this.obsecure = false,
+    super.key,  this.obsecure = false, this.enabledBorder, this.disabledBorder, this.border,
   });
 
   final String? hintText;
@@ -43,6 +43,10 @@ class AppTextField extends StatelessWidget {
   final BoxConstraints? suffixIconConstraints;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
+  final InputBorder? enabledBorder;
+  final InputBorder? disabledBorder;
+  final InputBorder? border;
+
   final bool readOnly;
   final void Function()? onTap;
   final int? maxlines;
@@ -53,7 +57,9 @@ class AppTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     return TextFormField(
+      style: textTheme.displayMedium!.copyWith(fontWeight: FontWeight.w600),
       obscureText: obsecure,
       onTap: onTap,
       onChanged: onChanged,
@@ -68,26 +74,18 @@ class AppTextField extends StatelessWidget {
       decoration: InputDecoration(
         isDense: true,
         filled: true,
-        fillColor: greyColor,
-        border: textFieldBorder,
-        enabledBorder: textFieldBorder,
-        disabledBorder: textFieldBorder,
+        fillColor: grey,
+        border: border,
+        enabledBorder: enabledBorder,
+        disabledBorder: disabledBorder,
         errorText: errorText,
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
         hintText: hintText,
-        hintStyle: TextStyle(
-          color: darkGreyColor,
-          fontSize: 14.sp,
-          fontWeight: FontWeight.w400,
-        ),
       ),
     );
   }
 }
 
 
-final textFieldBorder = OutlineInputBorder(
-  borderRadius: BorderRadius.circular(10.r),
-  borderSide: const BorderSide(color: greyColor),
-);
+

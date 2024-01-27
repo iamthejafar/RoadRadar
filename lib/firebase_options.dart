@@ -53,10 +53,10 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyABp3hOKtsgHw886_AtoQJX4iIb6n-k7lA',
-    appId: '1:115253324942:android:52cd483dba15749e56addf',
-    messagingSenderId: '115253324942',
-    projectId: 'roadsync-64567',
-    storageBucket: 'roadsync-64567.appspot.com',
+    apiKey: 'AIzaSyDVKnmMC495nmjLqNpclUDNQcb1tHwzEPA',
+    appId: '1:142876805959:android:d463f11e7c428202c8da62',
+    messagingSenderId: '142876805959',
+    projectId: 'road-radar-4ef2d',
+    storageBucket: 'road-radar-4ef2d.appspot.com',
   );
 }
