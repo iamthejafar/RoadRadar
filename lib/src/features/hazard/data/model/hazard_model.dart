@@ -13,7 +13,12 @@ class HazardModel extends HazardEntity {
     required List<ImageModel> hazardImages,
     required List<double> coordinates,
     required String hazardType,
-  });
+  }) : super(
+            uid: uid,
+            description: description,
+            hazardImages: hazardImages,
+            coordinates: coordinates,
+            hazardType: hazardType);
 
   factory HazardModel.fromJson(Map<String, dynamic> json) =>
       _$HazardModelFromJson(json);

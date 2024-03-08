@@ -1,3 +1,5 @@
 
 
-const String baseUrl = "http://localhost:5000";
+class Constants{
+  static const String baseUrl = "http://192.168.1.3:5000/";
+}

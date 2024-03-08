@@ -7,7 +7,7 @@ import 'package:reorderable_grid/reorderable_grid.dart';
 
 import '../../../global_providers.dart';
 import '../../core/app/theme/colors.dart';
-import '../image_picker/app_image_picker.dart';
+import '../../utils/image_picker/app_image_picker.dart';
 import 'custom_dotted_container.dart';
 
 

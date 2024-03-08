@@ -1,7 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:roadradar/src/dependency_injection/dependency_injection.dart';
+import 'package:roadradar/src/features/auth/domain/usecase/login.dart';
+import 'package:roadradar/src/features/auth/presentation/providers/auth_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../constants/buttons/app_button.dart';
@@ -10,17 +14,16 @@ import '../../../../constants/textfield/app_text_field.dart';
 import '../../../../core/app/router/router.gr.dart';
 import '../../../../utils/shared_preferences/shared_preferences.dart';
 import '../../../../utils/text_validation/text_validation.dart';
-import '../../../hazard/domain/repository/auth/auth_repo.dart';
 
 @RoutePage()
-class AuthScreen extends StatefulWidget {
+class AuthScreen extends ConsumerStatefulWidget {
   const AuthScreen({super.key});
 
   @override
-  State<AuthScreen> createState() => _AuthScreenState();
+  ConsumerState<AuthScreen> createState() => _AuthScreenState();
 }
 
-class _AuthScreenState extends State<AuthScreen> {
+class _AuthScreenState extends ConsumerState<AuthScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
   bool isSignIn = true;
@@ -100,17 +103,13 @@ class _AuthScreenState extends State<AuthScreen> {
                         text: isSignIn ? 'Sign In' : "Sign Up",
                         onTap: () async {
                           if (formKey.currentState!.validate()) {
-                            UserCredential? res;
+                            String? res;
                             if (isSignIn) {
-                              res = await AuthRepo().login(
-                                  _emailController.text.trim(),
-                                  _passController.text.trim(),
-                                  context);
+                              ref.read(authProvider.notifier).login(_emailController.text.trim(), _passController.text.trim());
+
                             } else {
-                              res = await AuthRepo().signUp(
-                                  _emailController.text.trim(),
-                                  _passController.text.trim(),
-                                  context);
+                              ref.read(authProvider.notifier).login(_emailController.text.trim(), _passController.text.trim());
+
                             }
 
                             if (res != null) {

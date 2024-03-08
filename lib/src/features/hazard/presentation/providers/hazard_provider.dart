@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
+import 'package:roadradar/src/dependency_injection/dependency_injection.dart';
 
 import '../../domain/entity/hazard.dart';
 import '../../domain/usecase/get_hazard.dart';
@@ -24,7 +25,7 @@ class HazardState {
 }
 
 class HazardNotifier extends StateNotifier<HazardState> {
-  final GetArticleUseCase getArticleUseCase;
+  final GetHazardsUseCase getArticleUseCase;
   int currentPage = 1;
   final ScrollController scrollController = ScrollController();
 
@@ -49,7 +50,6 @@ class HazardNotifier extends StateNotifier<HazardState> {
       state = HazardState(hazards: state.hazards, state: HazardNotifierState.loading);
 
       final dataState = await getArticleUseCase.call(Params(page: currentPage, size: size));
-
       if (dataState.data != null) {
         state = HazardState(hazards: [...state.hazards, ...dataState.data!], state: HazardNotifierState.loaded);
         currentPage++;
@@ -67,3 +67,7 @@ class HazardNotifier extends StateNotifier<HazardState> {
     }
   }
 }
+
+
+
+final hazardProvider = StateNotifierProvider<HazardNotifier,HazardState>((ref) => locator<HazardNotifier>());

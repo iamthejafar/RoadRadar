@@ -1,22 +1,24 @@
+
+
+
 import 'dart:io';
+
 import 'package:dio/dio.dart';
-import 'package:roadradar/src/features/hazard/domain/entity/hazard.dart';
-import 'package:roadradar/src/utils/shared_preferences/shared_preferences.dart';
+import 'package:roadradar/src/features/auth/data/data_source/remote/auth_api_service.dart';
+import 'package:roadradar/src/features/auth/domain/repository/auth_repo.dart';
 
 import '../../../../comman/models/data_state.dart';
-import '../../domain/repository/hazard/hazard_repo.dart';
-import '../data_source/remote/hazard_api_service.dart';
-import '../model/hazard_model.dart';
+import '../models/user_model.dart';
 
-class HazardRepositoryImpl implements HazardRepository {
-  final HazardApiService _apiService;
-  HazardRepositoryImpl(this._apiService);
+class AuthRepositoryImpl implements AuthRepository {
+  final AuthApiService _apiService;
+  AuthRepositoryImpl(this._apiService);
 
   @override
-  Future<DataState<List<HazardModel>>> getHazards({int? page, int? size}) async {
+  Future<DataState<UserModel>> login({required String email, required String password}) async {
     try {
       final httpResponse =
-          await _apiService.getHazards(userId: UserPreferences.userId, page: page, size:  size,);
+      await _apiService.login(email: email,password: password);
       if (httpResponse.response.statusCode == HttpStatus.ok) {
         return DataSuccess(httpResponse.data);
       } else {
@@ -31,10 +33,10 @@ class HazardRepositoryImpl implements HazardRepository {
   }
 
   @override
-  Future<DataState<String>> addHazard({required HazardEntity hazardEntity}) async {
+  Future<DataState<String>> signUp({required String email, required String password}) async {
     try {
       final httpResponse =
-          await _apiService.addHazard(hazardModel: (hazardEntity as HazardModel));
+          await _apiService.signup(email: email,password: password);
       if (httpResponse.response.statusCode == HttpStatus.ok) {
         return DataSuccess(httpResponse.data);
       } else {

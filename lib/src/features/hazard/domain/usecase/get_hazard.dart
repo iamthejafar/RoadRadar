@@ -1,14 +1,14 @@
 import 'package:equatable/equatable.dart';
 
 import '../../../../core/usecases/usecase.dart';
-import '../../../../domain/data_state.dart';
+import '../../../../comman/models/data_state.dart';
 import '../entity/hazard.dart';
 import '../repository/hazard/hazard_repo.dart';
 
-class GetArticleUseCase implements UseCase<DataState<List<HazardEntity>>, Params> {
+class GetHazardsUseCase implements UseCase<DataState<List<HazardEntity>>, Params> {
   final HazardRepository _repository;
 
-  GetArticleUseCase(this._repository);
+  GetHazardsUseCase(this._repository);
 
   @override
   Future<DataState<List<HazardEntity>>> call(Params params) async {

@@ -5,16 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:roadradar/src/features/hazard/presentation/providers/hazard_provider.dart';
 
 import 'dart:io';
 
 import '../../../../../global_providers.dart';
+import '../../../../comman/widgets/custom_image_grid.dart';
 import '../../../../constants/buttons/app_button.dart';
 import '../../../../core/app/theme/colors.dart';
 import '../../../../constants/textfield/app_text_field.dart';
 import '../../../../domain/models/home/hazard_model.dart';
-import '../../../../utils/customs/custom_drop_down.dart';
-import '../../../../utils/customs/custom_image_grid.dart';
+import '../../../../comman/widgets/custom_drop_down.dart';
 import '../../../../utils/dialogs/failed_dialog.dart';
 import '../../../../utils/dialogs/loading_dIalog.dart';
 import '../../../../utils/dialogs/success_dialog.dart';
