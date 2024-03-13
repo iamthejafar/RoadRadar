@@ -12,10 +12,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-
   await UserPreferences.init();
-  setupLocator();
 
+  // Dependency injection
+  setupLocator();
   runApp(
     ProviderScope(
       child: App(),
