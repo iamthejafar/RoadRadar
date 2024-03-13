@@ -102,23 +102,23 @@ class _AuthScreenState extends ConsumerState<AuthScreen> {
                       AppButton(
                         text: isSignIn ? 'Sign In' : "Sign Up",
                         onTap: () async {
-                          if (formKey.currentState!.validate()) {
-                            String? res;
-                            if (isSignIn) {
-                              ref.read(authProvider.notifier).login(_emailController.text.trim(), _passController.text.trim());
-
-                            } else {
-                              ref.read(authProvider.notifier).login(_emailController.text.trim(), _passController.text.trim());
-
-                            }
-
-                            if (res != null) {
-                              if (context.mounted) {
-                                UserPreferences.setUser(userId: res.user!.uid);
-                                context.router.replaceAll([const HomeRoute()]);
-                              }
-                            }
-                          }
+                          // if (formKey.currentState!.validate()) {
+                          //   String? res;
+                          //   if (isSignIn) {
+                          //     ref.read(authProvider.notifier).login(_emailController.text.trim(), _passController.text.trim());
+                          //
+                          //   } else {
+                          //     ref.read(authProvider.notifier).login(_emailController.text.trim(), _passController.text.trim());
+                          //
+                          //   }
+                          //
+                          //   if (res != null) {
+                          //     if (context.mounted) {
+                          //       UserPreferences.setUser(userId: res.user!.uid);
+                          //       context.router.replaceAll([const HomeRoute()]);
+                          //     }
+                          //   }
+                          // }
                         },
                       ),
                       10.verticalSpace,

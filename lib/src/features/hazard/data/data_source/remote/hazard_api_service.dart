@@ -20,6 +20,6 @@ abstract class HazardApiService {
   
   @POST("/api/hazard/addHazard")
   Future<HttpResponse> addHazard({
-    @Body() HazardModel hazardModel
+    @Body() required HazardModel hazardModel
   });
 }
