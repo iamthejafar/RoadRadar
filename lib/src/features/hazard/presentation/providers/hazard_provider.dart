@@ -49,7 +49,7 @@ class HazardNotifier extends StateNotifier<HazardState> {
     try {
       state = HazardState(hazards: state.hazards, state: HazardNotifierState.loading);
 
-      final dataState = await getArticleUseCase.call(Params(page: currentPage, size: size));
+      final dataState = await getArticleUseCase.call(GetHazardParam(page: currentPage, size: size));
       if (dataState.data != null) {
         state = HazardState(hazards: [...state.hazards, ...dataState.data!], state: HazardNotifierState.loaded);
         currentPage++;
@@ -63,6 +63,7 @@ class HazardNotifier extends StateNotifier<HazardState> {
         state = HazardState(hazards: state.hazards, error: 'Unknown error', state: HazardNotifierState.error);
       }
     } catch (e) {
+      print(e);
       state = HazardState(hazards: state.hazards, error: 'Error fetching hazards: $e', state: HazardNotifierState.error);
     }
   }

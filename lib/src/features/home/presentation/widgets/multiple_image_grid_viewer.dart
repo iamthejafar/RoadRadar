@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:roadradar/src/comman/models/image_model.dart';
 
 import '../../../../core/app/theme/colors.dart';
 import '../../../../core/app/router/router.gr.dart';
@@ -13,7 +14,7 @@ class MultipleImageGridViewer extends ConsumerWidget {
   const MultipleImageGridViewer({Key? key, required this.images})
       : super(key: key);
 
-  final List<String> images;
+  final List<ImageModel> images;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -40,11 +41,11 @@ class MultipleImageGridViewer extends ConsumerWidget {
                         child: InkWell(
                           onTap: () {
                             context.router.push(ImagePreviewRoute(
-                                urls: images, initialPage: 0));
+                                images: images, initialPage: 0));
                           },
                           child: CachedNetworkImage(
                             fit: BoxFit.cover,
-                            imageUrl: images[0],
+                            imageUrl: images[0].url,
                             progressIndicatorBuilder:
                                 (context, url, downloadProgress) => Center(
                                 child: CircularProgressIndicator(
@@ -69,13 +70,13 @@ class MultipleImageGridViewer extends ConsumerWidget {
                           child: InkWell(
                             onTap: () {
                               context.router.push(ImagePreviewRoute(
-                                  urls: images, initialPage: 1));
+                                  images: images, initialPage: 1));
                             },
                             child: Container(
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                   image: NetworkImage(
-                                    images[1],
+                                    images[1].url,
                                   ),
                                   fit: BoxFit.cover,
                                 ),
@@ -100,15 +101,15 @@ class MultipleImageGridViewer extends ConsumerWidget {
                           child: InkWell(
                             onTap: () {
                               context.router.push(ImagePreviewRoute(
-                                  urls: images, initialPage: 2));
+                                  images: images, initialPage: 2));
                             },
                             child: Container(
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                   image: NetworkImage(
                                     images.length == 4 || images.length == 3
-                                        ? images[1]
-                                        : images[2],
+                                        ? images[1].url
+                                        : images[2].url,
                                   ),
                                   fit: BoxFit.cover,
                                 ),
@@ -127,15 +128,15 @@ class MultipleImageGridViewer extends ConsumerWidget {
                             child: InkWell(
                               onTap: () {
                                 context.router.push(ImagePreviewRoute(
-                                    urls: images, initialPage: 2));
+                                    images: images, initialPage: 2));
                               },
                               child: Container(
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                     image: NetworkImage(
                                       images.length == 4 || images.length == 3
-                                          ? images[2]
-                                          : images[3],
+                                          ? images[2].url
+                                          : images[3].url,
                                     ),
                                     fit: BoxFit.cover,
                                   ),
@@ -157,8 +158,8 @@ class MultipleImageGridViewer extends ConsumerWidget {
                                     image: DecorationImage(
                                       image: NetworkImage(
                                         images.length == 4
-                                            ? images[3]
-                                            : images[4],
+                                            ? images[3].url
+                                            : images[4].url,
                                       ),
                                       fit: BoxFit.cover,
                                     ),

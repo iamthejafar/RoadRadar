@@ -5,6 +5,9 @@ import 'colors.dart';
 
 class AppTheme {
   final themeData = ThemeData(
+    listTileTheme: const ListTileThemeData(
+      iconColor: deepBlue
+    ),
     hintColor: mediumBlue,
     disabledColor: grey,
     dividerColor: grey,

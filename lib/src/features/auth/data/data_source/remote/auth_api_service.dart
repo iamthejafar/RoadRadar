@@ -16,7 +16,7 @@ abstract class AuthApiService {
   factory AuthApiService(Dio dio) = _AuthApiService;
 
   @GET('/api/auth/login')
-  Future<HttpResponse<UserModel>> login({
+  Future<HttpResponse<dynamic>> login({
     @Query("email") required String email,
     @Query("password") required String password,
   });

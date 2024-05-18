@@ -1,18 +1,15 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:roadradar/src/dependency_injection/dependency_injection.dart';
-import 'package:roadradar/src/features/auth/domain/usecase/login.dart';
 import 'package:roadradar/src/features/auth/presentation/providers/auth_provider.dart';
+import 'package:roadradar/src/utils/dialogs/loading_dIalog.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../constants/buttons/app_button.dart';
 import '../../../../core/app/theme/colors.dart';
 import '../../../../constants/textfield/app_text_field.dart';
 import '../../../../core/app/router/router.gr.dart';
-import '../../../../utils/shared_preferences/shared_preferences.dart';
 import '../../../../utils/text_validation/text_validation.dart';
 
 @RoutePage()
@@ -102,23 +99,20 @@ class _AuthScreenState extends ConsumerState<AuthScreen> {
                       AppButton(
                         text: isSignIn ? 'Sign In' : "Sign Up",
                         onTap: () async {
-                          // if (formKey.currentState!.validate()) {
-                          //   String? res;
-                          //   if (isSignIn) {
-                          //     ref.read(authProvider.notifier).login(_emailController.text.trim(), _passController.text.trim());
-                          //
-                          //   } else {
-                          //     ref.read(authProvider.notifier).login(_emailController.text.trim(), _passController.text.trim());
-                          //
-                          //   }
-                          //
-                          //   if (res != null) {
-                          //     if (context.mounted) {
-                          //       UserPreferences.setUser(userId: res.user!.uid);
-                          //       context.router.replaceAll([const HomeRoute()]);
-                          //     }
-                          //   }
-                          // }
+                          if (formKey.currentState!.validate()) {
+                            if (isSignIn) {
+                              showLoading(context);
+                              final res = await ref.read(authProvider.notifier).login(_emailController.text.trim(), _passController.text.trim());
+                              if(res && context.mounted){
+                                context.router.replaceAll([const HomeRoute()]);
+                              }
+                            } else {
+                              final res = await ref.read(authProvider.notifier).login(_emailController.text.trim(), _passController.text.trim());
+                              if(res && context.mounted){
+                                context.router.push(const HomeRoute());
+                              }
+                            }
+                          }
                         },
                       ),
                       10.verticalSpace,
@@ -157,7 +151,7 @@ class _AuthScreenState extends ConsumerState<AuthScreen> {
                     Text(
                       "By continuing, you agree to our",
                       textAlign: TextAlign.center,
-                      style: textTheme.bodySmall,
+                      style: textTheme.bodySmall!.copyWith(fontSize: 10),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -169,11 +163,11 @@ class _AuthScreenState extends ConsumerState<AuthScreen> {
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               "Terms of service",
-                              style: textTheme.labelSmall,
+                              style: textTheme.labelSmall!.copyWith(fontSize: 10),
                             ),
                           ),
                         ),
-                        Text(" | ", style: textTheme.bodySmall,
+                        Text(" | ", style: textTheme.labelSmall!.copyWith(fontSize: 10),
                         ),
                         InkWell(
                           onTap: () async => await launchUrl(
@@ -182,7 +176,7 @@ class _AuthScreenState extends ConsumerState<AuthScreen> {
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               "Privacy Policy",
-                              style: textTheme.labelSmall,
+                              style: textTheme.labelSmall!.copyWith(fontSize: 10),
                             ),
                           ),
                         ),
@@ -191,7 +185,6 @@ class _AuthScreenState extends ConsumerState<AuthScreen> {
                   ],
                 ),
               ),
-
             ],
           ),
         ),

@@ -14,7 +14,6 @@ import '../../../../comman/widgets/custom_image_grid.dart';
 import '../../../../constants/buttons/app_button.dart';
 import '../../../../core/app/theme/colors.dart';
 import '../../../../constants/textfield/app_text_field.dart';
-import '../../../../domain/models/home/hazard_model.dart';
 import '../../../../comman/widgets/custom_drop_down.dart';
 import '../../../../utils/dialogs/failed_dialog.dart';
 import '../../../../utils/dialogs/loading_dIalog.dart';
@@ -120,92 +119,92 @@ class _AddIssueScreenState extends ConsumerState<AddHazardIssueScreen> {
               20.verticalSpace,
               const CustomImageGrid(providerId: "issueImage"),
               20.verticalSpace,
-              AppButton(
-                text: "Submit",
-                onTap: () async {
-                  final files = ref.read(pickedImageProvider('issueImage'));
-
-                  if (selectedIncident != null &&
-                      formKey.currentState!.validate()) {
-                    if (files.isNotEmpty) {
-                        showLoading(context);
-
-                        Position? location;
-                        try{
-                          debugPrint('Getting Location');
-                          location = await LocationService().getLocation();
-                          debugPrint('Location : $location');
-                        } catch(e){
-                          if(context.mounted){
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text(e.toString()),),);                         
-                          }
-                        }
-                      if (location != null) {
-                        final url = await _uploadImages(files);
-                        HazardIssueModel model = HazardIssueModel(
-                          hazardType: selectedIncident!,
-                          coordinates: [location.latitude, location.longitude],
-                          uid: UserPreferences.userId,
-                          description: descriptionController.text.trim(),
-                          images: url,
-                        );
-
-                      try{
-                        await FirebaseFirestore.instance
-                            .collection("issues")
-                            .add(model.toJson());
-                        if (context.mounted) {
-                          successDialog(
-                            context,
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                              Navigator.of(context).pop();
-                              ref.read(pickedImageProvider('issueImage').notifier).dispose();
-                              context.router.pop();
-                            },
-                          );
-                        }
-
-                      } catch (e){
-                        if (context.mounted) {
-                          failedDialog(
-                            context,
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                              Navigator.of(context).pop();
-                              ref.read(pickedImageProvider('issueImage').notifier).dispose();
-                              context.router.pop();
-                            },
-                          );
-                        }
-
-                      }
-
-
-                      } else {
-                        if (context.mounted) {
-                          ScaffoldMessenger.of(context)
-                              .showSnackBar(const SnackBar(
-                            backgroundColor: Colors.red,
-                            content: Text('Unable to Fetch Location.'),
-                          ));
-                        }
-                      }
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        backgroundColor: darkGrey,
-                        content: Text('Please Add Images.'),
-                      ));
-                    }
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                      backgroundColor: darkGrey,
-                      content: Text('Please select hazard type.'),
-                    ));
-                  }
-                },
-              )
+              // AppButton(
+              //   text: "Submit",
+              //   onTap: () async {
+              //     final files = ref.read(pickedImageProvider('issueImage'));
+              //
+              //     if (selectedIncident != null &&
+              //         formKey.currentState!.validate()) {
+              //       if (files.isNotEmpty) {
+              //           showLoading(context);
+              //
+              //           Position? location;
+              //           try{
+              //             debugPrint('Getting Location');
+              //             location = await LocationService().getLocation();
+              //             debugPrint('Location : $location');
+              //           } catch(e){
+              //             if(context.mounted){
+              //               ScaffoldMessenger.of(context).showSnackBar(
+              //                 SnackBar(content: Text(e.toString()),),);
+              //             }
+              //           }
+              //         if (location != null) {
+              //           final url = await _uploadImages(files);
+              //           // HazardIssueModel model = HazardIssueModel(
+              //           //   hazardType: selectedIncident!,
+              //           //   coordinates: [location.latitude, location.longitude],
+              //           //   uid: UserPreferences.userId,
+              //           //   description: descriptionController.text.trim(),
+              //           //   images: url,
+              //           // );
+              //
+              //         try{
+              //           await FirebaseFirestore.instance
+              //               .collection("issues")
+              //               .add(model.toJson());
+              //           if (context.mounted) {
+              //             successDialog(
+              //               context,
+              //               onPressed: () {
+              //                 Navigator.of(context).pop();
+              //                 Navigator.of(context).pop();
+              //                 ref.read(pickedImageProvider('issueImage').notifier).dispose();
+              //                 context.router.pop();
+              //               },
+              //             );
+              //           }
+              //
+              //         } catch (e){
+              //           if (context.mounted) {
+              //             failedDialog(
+              //               context,
+              //               onPressed: () {
+              //                 Navigator.of(context).pop();
+              //                 Navigator.of(context).pop();
+              //                 ref.read(pickedImageProvider('issueImage').notifier).dispose();
+              //                 context.router.pop();
+              //               },
+              //             );
+              //           }
+              //
+              //         }
+              //
+              //
+              //         } else {
+              //           if (context.mounted) {
+              //             ScaffoldMessenger.of(context)
+              //                 .showSnackBar(const SnackBar(
+              //               backgroundColor: Colors.red,
+              //               content: Text('Unable to Fetch Location.'),
+              //             ));
+              //           }
+              //         }
+              //       } else {
+              //         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              //           backgroundColor: darkGrey,
+              //           content: Text('Please Add Images.'),
+              //         ));
+              //       }
+              //     } else {
+              //       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              //         backgroundColor: darkGrey,
+              //         content: Text('Please select hazard type.'),
+              //       ));
+              //     }
+              //   },
+              // )
             ],
           ),
         ),

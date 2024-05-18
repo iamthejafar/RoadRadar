@@ -28,9 +28,7 @@ void showErrorDialog(BuildContext context, {required String message}) {
                 message,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    color: black,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 14.sp),
+                    color: black, fontWeight: FontWeight.w500, fontSize: 14.sp),
               ),
               20.verticalSpace,
               ElevatedButton(

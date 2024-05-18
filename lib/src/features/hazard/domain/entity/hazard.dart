@@ -3,7 +3,7 @@ import 'package:roadradar/src/comman/models/image_model.dart';
 
 class HazardEntity extends Equatable{
 
-  final String uid;
+  final String userId;
   final String description;
   final List<ImageModel> hazardImages;
   final List<double> coordinates;
@@ -11,7 +11,7 @@ class HazardEntity extends Equatable{
 
 
   const HazardEntity({
-    required this.uid,
+    required this.userId,
     required this.description,
     required this.hazardImages,
     required this.coordinates,
@@ -21,7 +21,7 @@ class HazardEntity extends Equatable{
   @override
   List < Object ? > get props {
     return [
-      uid,
+      userId,
       description,
       hazardImages,
       coordinates,

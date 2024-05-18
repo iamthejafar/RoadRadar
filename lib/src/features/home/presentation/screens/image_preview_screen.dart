@@ -1,5 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
+import 'package:roadradar/src/comman/models/image_model.dart';
 
 import '../../../../core/app/theme/colors.dart';
 
@@ -10,8 +11,8 @@ import '../../../../core/app/theme/colors.dart';
 
 @RoutePage()
 class ImagePreviewScreen extends StatefulWidget {
-  const ImagePreviewScreen({super.key, required this.urls, required this.initialPage});
-  final List<String> urls;
+  const ImagePreviewScreen({super.key, required this.images, required this.initialPage});
+  final List<ImageModel> images;
   final int initialPage;
 
   @override
@@ -36,9 +37,9 @@ class _ImagePreviewScreenState extends State<ImagePreviewScreen> {
       backgroundColor: black,
       body: PageView(
         children: [
-          for(final url in widget.urls)
+          for(final item in widget.images)
             Image.network(
-              url,
+              item.url,
               fit: BoxFit.fitWidth,
               loadingBuilder: (context, child, loadingProgress){
                 if(loadingProgress == null) return child;

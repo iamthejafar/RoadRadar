@@ -6,7 +6,9 @@ import 'package:roadradar/src/constants/constants.dart';
 import 'package:roadradar/src/features/auth/data/data_source/remote/auth_api_service.dart';
 import 'package:roadradar/src/features/auth/data/repository_impl/auth_repo_impl.dart';
 import 'package:roadradar/src/features/auth/domain/usecase/login.dart';
+import 'package:roadradar/src/features/auth/domain/usecase/signup.dart';
 import 'package:roadradar/src/features/auth/presentation/providers/auth_provider.dart';
+import 'package:roadradar/src/utils/shared_preferences/shared_preferences.dart';
 
 import '../features/hazard/data/data_source/remote/hazard_api_service.dart';
 import '../features/hazard/data/repo_impl/hazard_repo_impl.dart';
@@ -40,7 +42,8 @@ void setupLocator() {
   locator.registerSingleton<AuthApiService>(AuthApiService(jsonDio));
   locator.registerLazySingleton<AuthRepositoryImpl>(()=>(AuthRepositoryImpl(locator<AuthApiService>())));
   locator.registerLazySingleton<LoginUseCase>(()=> LoginUseCase(locator<AuthRepositoryImpl>()));
-  locator.registerLazySingleton<AuthNotifier>(() => AuthNotifier(locator<LoginUseCase>()));
+  locator.registerLazySingleton<SignUpUseCase>(()=> SignUpUseCase(locator<AuthRepositoryImpl>()));
+  locator.registerLazySingleton<AuthNotifier>(() => AuthNotifier(locator<LoginUseCase>(), locator<SignUpUseCase>()));
 
   // Hazard
   locator.registerSingleton<HazardApiService>(HazardApiService(jsonDio));
@@ -71,11 +74,12 @@ Dio buildDioClient({String? baseUrl, ContentType? contentType}){
     'accept': '*/*',
     'Content-Type': content,
   };
+  headers['Authorization'] = "Bearer ${UserPreferences.token}";
   final dio = Dio()..options = BaseOptions(
     baseUrl: baseUrl,
-    connectTimeout: const Duration(seconds: 3),
-    receiveTimeout: const Duration(seconds: 3),
-    sendTimeout: const Duration(seconds: 3),
+    connectTimeout: const Duration(seconds: 5),
+    receiveTimeout: const Duration(seconds: 5),
+    sendTimeout: const Duration(seconds: 5),
     headers: headers,
   );
 

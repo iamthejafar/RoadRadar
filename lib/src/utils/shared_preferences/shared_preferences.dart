@@ -10,16 +10,18 @@ class UserPreferences {
   static const _userName = 'user_name';
   static const _profilePic = 'profile_pic';
   static const _mobileNo = "mobileNo";
+  static const _token = "token";
 
   static Future init() async =>
       _preferences = await SharedPreferences.getInstance();
 
   static Future setUser({
-    String? userId,
-    String? mobileNo
+    required String userId,
+    required String token,
   }) async {
-    await _preferences.setString(_userId, userId ?? "");
-    await _preferences.setString(_mobileNo, mobileNo ?? "");
+    await _preferences.setString(_userId, userId);
+
+    await _preferences.setString(_token, token);
   }
   static Future setUserName(String? userName) async {
     await _preferences.setString(_userName, userName ?? "");
@@ -34,6 +36,7 @@ class UserPreferences {
   static String get mobileNo => _preferences.getString(_mobileNo) ?? "";
   static String get userName => _preferences.getString(_userName) ?? "";
   static String? get profilePic => _preferences.getString(_profilePic);
+  static String get token => _preferences.getString(_token) ?? "";
 
 
   static Future removeProfile() async {

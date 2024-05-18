@@ -15,7 +15,7 @@ class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl(this._apiService);
 
   @override
-  Future<DataState<UserModel>> login({required String email, required String password}) async {
+  Future<DataState<dynamic>> login({required String email, required String password}) async {
     try {
       final httpResponse =
       await _apiService.login(email: email,password: password);
@@ -28,6 +28,7 @@ class AuthRepositoryImpl implements AuthRepository {
             error: httpResponse.response.statusMessage));
       }
     } on DioException catch (e) {
+      print(e);
       return DataFailed(e);
     }
   }

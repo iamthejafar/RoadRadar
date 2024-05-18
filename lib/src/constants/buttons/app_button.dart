@@ -4,28 +4,25 @@ import 'package:roadradar/src/core/app/theme/app_text_style.dart';
 
 import '../../core/app/theme/colors.dart';
 
-
-
 class AppButton extends StatelessWidget {
   const AppButton({
-    super.key, this.onTap, required this.text,
+    super.key,
+    this.onTap,
+    required this.text,
+    this.textStyle
   });
   final void Function()? onTap;
   final String text;
+  final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        // style: ElevatedButton.styleFrom(
-        //   shape: RoundedRectangleBorder(
-        //       borderRadius: BorderRadius.circular(10.r)
-        //   ),
-        //   minimumSize: const Size(double.infinity, 40),
-        // ),
-        onPressed: onTap,
-        child: Text(
-          text,
-          // style: AppTextStyle.k14pxBlackW500,
-        ));
+      onPressed: onTap,
+      child: Text(
+        text,
+        style: textStyle,
+      ),
+    );
   }
 }

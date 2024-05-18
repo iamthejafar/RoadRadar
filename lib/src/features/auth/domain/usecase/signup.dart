@@ -6,23 +6,23 @@ import '../../../../core/usecases/usecase.dart';
 import '../entity/user.dart';
 import '../repository/auth_repo.dart';
 
-class LoginUseCase implements UseCase<DataState<String>, Params> {
+class SignUpUseCase implements UseCase<DataState<dynamic>, SignUpParams> {
   final AuthRepository _repository;
 
-  LoginUseCase(this._repository);
+  SignUpUseCase(this._repository);
 
   @override
-  Future<DataState<String>> call(Params params) async {
+  Future<DataState<dynamic>> call(SignUpParams params) async {
     return await _repository.signUp(email: params.email, password: params.password);
   }
 }
 
 
-class Params extends Equatable {
+class SignUpParams extends Equatable {
   String email;
   String password;
 
-  Params({required this.email,required this.password});
+  SignUpParams({required this.email,required this.password});
 
   @override
   List<Object?> get props => [email,password];
