@@ -107,7 +107,7 @@ class _AuthScreenState extends ConsumerState<AuthScreen> {
                                 context.router.replaceAll([const HomeRoute()]);
                               }
                             } else {
-                              final res = await ref.read(authProvider.notifier).login(_emailController.text.trim(), _passController.text.trim());
+                              final res = await ref.read(authProvider.notifier).signUp(_emailController.text.trim(), _passController.text.trim());
                               if(res && context.mounted){
                                 context.router.push(const HomeRoute());
                               }

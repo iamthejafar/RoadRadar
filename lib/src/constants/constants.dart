@@ -1,5 +1,5 @@
 
 
 class Constants{
-  static const String baseUrl = "http://192.168.1.9:5000/";
+  static const String baseUrl = "http://65.1.84.105:5000/";
 }
