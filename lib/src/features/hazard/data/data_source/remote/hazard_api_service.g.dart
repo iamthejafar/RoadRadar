@@ -13,7 +13,7 @@ class _HazardApiService implements HazardApiService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'http://65.1.84.105:5000/';
+    baseUrl ??= 'http://192.168.1.9:5000/';
   }
 
   final Dio _dio;

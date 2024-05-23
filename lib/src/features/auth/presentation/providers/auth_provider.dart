@@ -38,7 +38,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
       final dataState = await signUpUseCase.call(SignUpParams(email: email, password: password));
       if (dataState.data != null) {
         state = AuthState.authenticated;
-        UserPreferences.setUser(userId: dataState.data!['userId'], token: dataState.data!["token"]);
+        await UserPreferences.setUser(userId: dataState.data!['userId'], token: dataState.data!["token"]);
         res = true;
       } else {
         print('Login failed: ${dataState.error!.message ?? "Unknown error"}');
