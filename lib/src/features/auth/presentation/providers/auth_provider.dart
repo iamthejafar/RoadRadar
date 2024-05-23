@@ -40,6 +40,9 @@ class AuthNotifier extends StateNotifier<AuthState> {
         state = AuthState.authenticated;
         await UserPreferences.setUser(userId: dataState.data!['userId'], token: dataState.data!["token"]);
         res = true;
+
+
+
       } else {
         print('Login failed: ${dataState.error!.message ?? "Unknown error"}');
       }
