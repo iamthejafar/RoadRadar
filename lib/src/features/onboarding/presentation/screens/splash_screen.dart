@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
       if (context.mounted) {
         if (isOnline) {
           if (userId != "") {
-            context.router.replaceAll([const HomeRoute()]);
+            context.router.replaceAll([const MainRoute()]);
           } else {
             context.router.replaceAll([const AuthRoute()]);
           }

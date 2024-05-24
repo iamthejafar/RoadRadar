@@ -2,6 +2,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:roadradar/src/core/app/router/router.gr.dart';
+import 'package:roadradar/src/features/home/presentation/screens/main_screen.dart';
 
 
 class AppRouteObserver extends AutoRouterObserver {
@@ -20,7 +21,7 @@ class AppRouter extends $AppRouter {
     AutoRoute(page: SplashRoute.page, path: "/splashScreen",initial: true ),
     AutoRoute(page: AuthRoute.page, path: "/authScreen", ),
     AutoRoute(page: NoInternetRoute.page, path: "/noInternet"),
-    AutoRoute(page: HomeRoute.page, path: "/homeScreen",),
+    AutoRoute(page: MainRoute.page, path: "/mainScreen",),
     AutoRoute(page: AddHazardIssueRoute.page, path: '/addIssue'),
     AutoRoute(page: ImagePreviewRoute.page, path: '/imagePreview'),
     AutoRoute(page: MapFullRoute.page, path: '/mapFullView'),

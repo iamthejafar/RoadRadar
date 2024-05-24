@@ -17,9 +17,9 @@ import 'package:roadradar/src/features/auth/presentation/screens/auth_screen.dar
     as _i2;
 import 'package:roadradar/src/features/hazard/presentation/screens/add_hazard_issue_screen.dart'
     as _i1;
-import 'package:roadradar/src/features/home/presentation/screens/home_screen.dart'
-    as _i3;
 import 'package:roadradar/src/features/home/presentation/screens/image_preview_screen.dart'
+    as _i3;
+import 'package:roadradar/src/features/home/presentation/screens/main_screen.dart'
     as _i4;
 import 'package:roadradar/src/features/home/presentation/screens/map_full_screen.dart'
     as _i5;
@@ -43,21 +43,21 @@ abstract class $AppRouter extends _i8.RootStackRouter {
         child: const _i2.AuthScreen(),
       );
     },
-    HomeRoute.name: (routeData) {
-      return _i8.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i3.HomeScreen(),
-      );
-    },
     ImagePreviewRoute.name: (routeData) {
       final args = routeData.argsAs<ImagePreviewRouteArgs>();
       return _i8.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i4.ImagePreviewScreen(
+        child: _i3.ImagePreviewScreen(
           key: args.key,
           images: args.images,
           initialPage: args.initialPage,
         ),
+      );
+    },
+    MainRoute.name: (routeData) {
+      return _i8.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i4.MainScreen(),
       );
     },
     MapFullRoute.name: (routeData) {
@@ -114,21 +114,7 @@ class AuthRoute extends _i8.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.HomeScreen]
-class HomeRoute extends _i8.PageRouteInfo<void> {
-  const HomeRoute({List<_i8.PageRouteInfo>? children})
-      : super(
-          HomeRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'HomeRoute';
-
-  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i4.ImagePreviewScreen]
+/// [_i3.ImagePreviewScreen]
 class ImagePreviewRoute extends _i8.PageRouteInfo<ImagePreviewRouteArgs> {
   ImagePreviewRoute({
     _i9.Key? key,
@@ -168,6 +154,20 @@ class ImagePreviewRouteArgs {
   String toString() {
     return 'ImagePreviewRouteArgs{key: $key, images: $images, initialPage: $initialPage}';
   }
+}
+
+/// generated route for
+/// [_i4.MainScreen]
+class MainRoute extends _i8.PageRouteInfo<void> {
+  const MainRoute({List<_i8.PageRouteInfo>? children})
+      : super(
+          MainRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MainRoute';
+
+  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
 }
 
 /// generated route for

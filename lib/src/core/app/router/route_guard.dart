@@ -21,7 +21,7 @@ class RouteGuard extends AutoRouteGuard {
 
 
     if(isOnline){
-      router.push(const HomeRoute());
+      router.push(const MainRoute());
 
       if(userId != ""){
       }

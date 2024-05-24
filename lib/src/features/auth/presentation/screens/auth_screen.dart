@@ -101,15 +101,15 @@ class _AuthScreenState extends ConsumerState<AuthScreen> {
                         onTap: () async {
                           if (formKey.currentState!.validate()) {
                             if (isSignIn) {
-                              showLoading(context);
-                              final res = await ref.read(authProvider.notifier).login(_emailController.text.trim(), _passController.text.trim());
-                              if(res && context.mounted){
-                                context.router.replaceAll([const HomeRoute()]);
-                              }
+                              // showLoading(context);
+                              // final res = await ref.read(authProvider.notifier).login(_emailController.text.trim(), _passController.text.trim());
+                              // if(res && context.mounted){
+                                context.router.replaceAll([const MainRoute()]);
+                              // }
                             } else {
                               final res = await ref.read(authProvider.notifier).signUp(_emailController.text.trim(), _passController.text.trim());
                               if(res && context.mounted){
-                                context.router.push(const HomeRoute());
+                                context.router.push(const MainRoute());
                               }
                             }
                           }
