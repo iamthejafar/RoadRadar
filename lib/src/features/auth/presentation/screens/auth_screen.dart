@@ -99,6 +99,8 @@ class _AuthScreenState extends ConsumerState<AuthScreen> {
                       AppButton(
                         text: isSignIn ? 'Sign In' : "Sign Up",
                         onTap: () async {
+                          context.router.replaceAll([const MainRoute()]);
+
                           if (formKey.currentState!.validate()) {
                             if (isSignIn) {
                               // showLoading(context);

@@ -2,10 +2,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:latlong2/latlong.dart';
+import 'package:roadradar/src/features/explore/presentation/screens/explore_screen.dart';
 import 'package:roadradar/src/features/hazard/presentation/providers/hazard_provider.dart';
+import 'package:roadradar/src/features/hazard/presentation/screens/add_hazard_issue_screen.dart';
 
 import '../../../../core/app/theme/colors.dart';
 import '../../../../core/app/router/router.gr.dart';
+import '../../../community/presentation/screens/community_screen.dart';
 import 'home_screen.dart';
 
 
@@ -25,9 +29,9 @@ class _HomeScreenState extends ConsumerState<MainScreen> {
 
   List<Widget> pages = [
     HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
+    ExploreScreen(coordinates: [LatLng(21.7051, 72.9959)]),
+    AddHazardIssueScreen(),
+    CommunityScreen(),
     HomeScreen(),
   ];
   @override

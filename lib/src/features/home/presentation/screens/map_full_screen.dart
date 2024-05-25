@@ -6,15 +6,11 @@ import 'package:latlong2/latlong.dart';
 
 import '../../../../core/app/theme/colors.dart';
 
-
-
-
 @RoutePage()
 class MapFullScreen extends StatefulWidget {
   const MapFullScreen({super.key, required this.coordinates});
-  
+
   final List<LatLng> coordinates;
-  
 
   @override
   State<MapFullScreen> createState() => _MapFullScreenScreenState();
@@ -25,7 +21,10 @@ class _MapFullScreenScreenState extends State<MapFullScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Map", style: TextStyle(color: black),),
+        title: const Text(
+          "Map",
+          style: TextStyle(color: black),
+        ),
       ),
       body: Container(
           padding: const EdgeInsets.all(10),
@@ -44,23 +43,24 @@ class _MapFullScreenScreenState extends State<MapFullScreen> {
                       initialCenter: widget.coordinates.first,
                       initialCameraFit: widget.coordinates.length >= 2
                           ? CameraFit.coordinates(
-                          coordinates: widget.coordinates)
+                              coordinates: widget.coordinates)
                           : null,
                     ),
                     children: [
                       TileLayer(
                         urlTemplate:
-                        'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                        userAgentPackageName:
-                        'com.example.roadradar',
+                            'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                        userAgentPackageName: 'com.example.roadradar',
                       ),
                       MarkerLayer(
                         markers: [
                           for (final marker in widget.coordinates)
                             Marker(
                                 point: marker,
-                                child: const Icon(Icons.location_on,color: mediumBlue,)
-                            )
+                                child: const Icon(
+                                  Icons.location_on,
+                                  color: mediumBlue,
+                                ))
                         ],
                       )
                     ]),

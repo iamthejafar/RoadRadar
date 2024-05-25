@@ -1,14 +1,15 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lottie/lottie.dart';
 import 'package:roadradar/src/features/hazard/presentation/providers/hazard_provider.dart';
 
-import '../../../../constants/buttons/app_button.dart';
 import '../../../../core/app/theme/colors.dart';
-import '../../../../core/app/router/router.gr.dart';
-import '../../../../utils/shared_preferences/shared_preferences.dart';
-import '../widgets/multiple_image_grid_viewer.dart';
+import '../widgets/user_post_widget.dart';
+
+const imageUrl =
+    "https://media.licdn.com/dms/image/D4D03AQGkMuI3phuvFg/profile-displayphoto-shrink_400_400/0/1710682345759?e=1721865600&v=beta&t=F86KEbq83hjBUQhCtsZksHIj3u8IY7jjyZewUvC07lA";
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({
@@ -34,6 +35,37 @@ class HomeScreen extends ConsumerWidget {
                 style: textTheme.displayLarge,
               ),
             ],
+          ),
+          bottom: PreferredSize(
+            preferredSize: const Size(double.infinity, 90),
+            child: SizedBox(
+              height: 90,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Image.asset("assets/images/car_driving.png"),
+                 Expanded(
+                   child: Column(
+                     crossAxisAlignment: CrossAxisAlignment.start,
+                     children: [
+                       Text(
+                         "Learn to drive safely with our Driving Partners.",
+                         style: textTheme.bodyMedium,
+                       ),
+                       Container(
+                         decoration: BoxDecoration(
+                           color: greenYellow,
+                           borderRadius: BorderRadius.circular(10)
+                         ),
+                         padding: EdgeInsets.all(5),
+                         child: Text("Enquire"),
+                       )
+                     ],
+                   ),
+                 )
+                ],
+              ),
+            ),
           ),
           actions: [
             CircleAvatar(
@@ -125,17 +157,9 @@ class HomeScreen extends ConsumerWidget {
         SliverList(
           delegate: SliverChildListDelegate(
             [
-              Container(
-                child: Column(
-                  children: [
-                   Row(
-                     children: [
-
-                     ],
-                   )
-                  ],
-                ),
-              )
+              const UserPost(),
+              const UserPost(),
+              const UserPost(),
             ],
           ),
         ),
@@ -143,3 +167,5 @@ class HomeScreen extends ConsumerWidget {
     );
   }
 }
+
+

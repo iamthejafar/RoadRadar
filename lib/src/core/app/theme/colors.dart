@@ -13,5 +13,6 @@ const black = Color(0xff0f0f0f);
 const grey = Color(0xfff7f7f7);
 const darkGrey = Color(0xff494862);
 const white = Color(0xffffffff);
+const greenYellow = Color(0xff9acd32);
 
 
