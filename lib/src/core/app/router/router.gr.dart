@@ -15,7 +15,7 @@ import 'package:roadradar/src/comman/models/image_model.dart' as _i10;
 import 'package:roadradar/src/comman/screens/no_internet_screen.dart' as _i6;
 import 'package:roadradar/src/features/auth/presentation/screens/auth_screen.dart'
     as _i2;
-import 'package:roadradar/src/features/hazard/presentation/screens/add_hazard_issue_screen.dart'
+import 'package:roadradar/src/features/hazard/presentation/screens/create_post.dart'
     as _i1;
 import 'package:roadradar/src/features/home/presentation/screens/image_preview_screen.dart'
     as _i3;
@@ -34,7 +34,7 @@ abstract class $AppRouter extends _i8.RootStackRouter {
     AddHazardIssueRoute.name: (routeData) {
       return _i8.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.AddHazardIssueScreen(),
+        child: const _i1.CreatePost(),
       );
     },
     AuthRoute.name: (routeData) {
@@ -86,7 +86,7 @@ abstract class $AppRouter extends _i8.RootStackRouter {
 }
 
 /// generated route for
-/// [_i1.AddHazardIssueScreen]
+/// [_i1.CreatePost]
 class AddHazardIssueRoute extends _i8.PageRouteInfo<void> {
   const AddHazardIssueRoute({List<_i8.PageRouteInfo>? children})
       : super(

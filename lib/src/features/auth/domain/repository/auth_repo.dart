@@ -1,5 +1,4 @@
 
-import 'package:roadradar/src/features/auth/domain/entity/user.dart';
 
 import '../../../../comman/models/data_state.dart';
 

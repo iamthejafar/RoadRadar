@@ -3,7 +3,6 @@ import 'package:equatable/equatable.dart';
 
 import '../../../../comman/models/data_state.dart';
 import '../../../../core/usecases/usecase.dart';
-import '../entity/user.dart';
 import '../repository/auth_repo.dart';
 
 class SignUpUseCase implements UseCase<DataState<dynamic>, SignUpParams> {

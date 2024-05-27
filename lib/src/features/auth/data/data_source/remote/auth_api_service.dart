@@ -6,7 +6,6 @@
 
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:roadradar/src/features/auth/data/models/user_model.dart';
 
 import '../../../../../constants/constants.dart';
 part 'auth_api_service.g.dart';

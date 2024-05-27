@@ -8,7 +8,6 @@ import 'package:roadradar/src/features/auth/data/data_source/remote/auth_api_ser
 import 'package:roadradar/src/features/auth/domain/repository/auth_repo.dart';
 
 import '../../../../comman/models/data_state.dart';
-import '../models/user_model.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final AuthApiService _apiService;

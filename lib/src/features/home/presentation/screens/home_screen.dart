@@ -17,8 +17,7 @@ class HomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final textTheme = Theme.of(context).textTheme;
-    final controller = ref.watch(hazardProvider);
-    final loadingState = controller.state;
+    ref.watch(hazardProvider);
     return CustomScrollView(
       slivers: [
         SliverAppBar(
@@ -42,6 +41,7 @@ class HomeScreen extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Image.asset("assets/images/car_driving.png"),
+                 10.horizontalSpace,
                  Expanded(
                    child: Column(
                      crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,13 +50,17 @@ class HomeScreen extends ConsumerWidget {
                          "Learn to drive safely with our Driving Partners.",
                          style: textTheme.bodyMedium,
                        ),
-                       Container(
-                         decoration: BoxDecoration(
-                           color: greenYellow,
-                           borderRadius: BorderRadius.circular(10)
+                       Align(
+                         alignment: Alignment.centerRight,
+                         child: Container(
+                           margin: EdgeInsets.symmetric(horizontal: 16,vertical: 5),
+                           decoration: BoxDecoration(
+                               color: deepBlue,
+                               borderRadius: BorderRadius.circular(10)
+                           ),
+                           padding: EdgeInsets.all(5),
+                           child: Text("Enquire",style: textTheme.bodySmall!.copyWith(color: white),),
                          ),
-                         padding: EdgeInsets.all(5),
-                         child: Text("Enquire"),
                        )
                      ],
                    ),

@@ -2,7 +2,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:roadradar/src/core/app/router/router.gr.dart';
-import 'package:roadradar/src/features/home/presentation/screens/main_screen.dart';
 
 
 class AppRouteObserver extends AutoRouterObserver {

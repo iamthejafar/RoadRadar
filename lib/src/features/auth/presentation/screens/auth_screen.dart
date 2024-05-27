@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:roadradar/src/features/auth/presentation/providers/auth_provider.dart';
-import 'package:roadradar/src/utils/dialogs/loading_dIalog.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../constants/buttons/app_button.dart';
