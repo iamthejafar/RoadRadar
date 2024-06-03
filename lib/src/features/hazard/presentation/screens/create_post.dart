@@ -112,7 +112,7 @@ class _CreatePostState extends State<CreatePost>
               Builder(
                 builder: (context) {
                   return Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: ListView(
                       children: [
                         5.verticalSpace,
@@ -143,7 +143,7 @@ class _CreatePostState extends State<CreatePost>
               Builder(
                 builder: (context) {
                   return Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: ListView(
                       children: [
                         5.verticalSpace,

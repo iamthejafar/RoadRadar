@@ -11,15 +11,13 @@ import '../../core/app/theme/colors.dart';
 final mediaProvider = Provider((ref) => MediaPicker());
 
 class MediaPicker {
-
   Future<File?> captureMedia({
     ImageSource source = ImageSource.camera,
   }) async {
     final XFile? medias = await ImagePicker().pickImage(
-      source: source,
-      preferredCameraDevice: CameraDevice.front,
-      imageQuality: 50
-    );
+        source: source,
+        preferredCameraDevice: CameraDevice.front,
+        imageQuality: 50);
     if (medias != null) {
       return File(medias.path);
     }
@@ -50,12 +48,10 @@ class MediaPicker {
   }
 
   Future<File?> pickImage({
-    int quality =50,
+    int quality = 50,
   }) async {
-    final data = await ImagePicker().pickImage(
-      source: ImageSource.gallery,
-        imageQuality: quality
-    );
+    final data = await ImagePicker()
+        .pickImage(source: ImageSource.gallery, imageQuality: quality);
     if (data != null) {
       return File(data.path);
     }
@@ -63,17 +59,22 @@ class MediaPicker {
   }
 
   Future<List<File>> pickMultiImage(
-      {int quality = 50,
-      int count = 10,
-      required BuildContext context}) async {
+      {int quality = 50, int count = 10, required BuildContext context}) async {
     final List<File> images = [];
 
     final data = await ImagePicker().pickMultiImage(imageQuality: quality);
 
     if (data.length > count) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        backgroundColor: Colors.red,
-          content: Center(child: Text("Cannot pick more than $count images"),),),);
+      if(context.mounted){
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: Colors.red,
+            content: Center(
+              child: Text("Cannot pick more than $count images"),
+            ),
+          ),
+        );
+      }
       return [];
     }
 
@@ -120,7 +121,7 @@ class MediaPicker {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Icon(Icons.camera_alt_outlined),
+                        const Icon(Icons.camera_alt_outlined),
                         13.horizontalSpace,
                         Text('Camera', style: TextStyle(fontSize: 12.sp)),
                       ],
@@ -144,7 +145,7 @@ class MediaPicker {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Icon(Icons.image),
+                        const Icon(Icons.image),
                         14.horizontalSpace,
                         Text('Gallery', style: TextStyle(fontSize: 12.sp)),
                       ],
@@ -195,7 +196,7 @@ class MediaPicker {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Icon(Icons.camera_alt_outlined),
+                      const Icon(Icons.camera_alt_outlined),
                       13.horizontalSpace,
                       Text('Camera', style: TextStyle(fontSize: 12.sp)),
                     ],
@@ -219,7 +220,7 @@ class MediaPicker {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Icon(Icons.image),
+                      const Icon(Icons.image),
                       14.horizontalSpace,
                       Text('Gallery', style: TextStyle(fontSize: 12.sp)),
                     ],
@@ -235,15 +236,13 @@ class MediaPicker {
   }
 }
 
-
-
 Future<T?> buildShowModalBottomSheet<T>(
-    BuildContext context,
-    Widget Function(ScrollController controller) builder, {
-      double initialHeight = 0.9,
-      Color bottomsheetcolor = white,
-      bool useRootNavigator = true,
-    }) {
+  BuildContext context,
+  Widget Function(ScrollController controller) builder, {
+  double initialHeight = 0.9,
+  Color bottomsheetcolor = white,
+  bool useRootNavigator = true,
+}) {
   return showModalBottomSheet<T>(
       backgroundColor: Colors.transparent,
       isScrollControlled: true,
@@ -285,7 +284,7 @@ Future<T?> buildShowModalBottomSheet<T>(
 }
 
 Widget makeDismissable(
-    {required Widget child, required BuildContext context}) =>
+        {required Widget child, required BuildContext context}) =>
     GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () => Navigator.pop(context),

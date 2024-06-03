@@ -10,7 +10,6 @@ import 'package:roadradar/src/features/hazard/presentation/providers/hazard_prov
 import 'package:roadradar/src/features/hazard/presentation/screens/create_post.dart';
 
 import '../../../../core/app/theme/colors.dart';
-import '../../../../core/app/router/router.gr.dart';
 import '../../../community/presentation/screens/community_screen.dart';
 import 'home_screen.dart';
 
@@ -29,7 +28,7 @@ class _HomeScreenState extends ConsumerState<MainScreen> {
 
   int currentIndex = 0;
 
-  List<Widget> pages = [
+  List<Widget> pages = const [
     HomeScreen(),
     ExploreScreen(coordinates: [LatLng(21.7051, 72.9959)]),
     CreatePost(),
@@ -39,8 +38,7 @@ class _HomeScreenState extends ConsumerState<MainScreen> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final controller = ref.watch(hazardProvider);
-    final loadingState = controller.state;
+    ref.watch(hazardProvider);
     return Scaffold(
       body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -64,7 +62,7 @@ class _HomeScreenState extends ConsumerState<MainScreen> {
               label: 'Explore',
               icon: Icon(currentIndex == 1 ? FontAwesomeIcons.mapLocationDot : FontAwesomeIcons.map)
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
               label: '',
               icon: Icon(Icons.add)
           ),

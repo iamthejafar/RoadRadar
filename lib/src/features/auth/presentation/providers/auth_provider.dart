@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:roadradar/src/dependency_injection/dependency_injection.dart';
 import 'package:roadradar/src/features/auth/domain/usecase/login.dart';
@@ -22,11 +23,15 @@ class AuthNotifier extends StateNotifier<AuthState> {
         UserPreferences.setUser(userId: dataState.data!['userId'], token: dataState.data!["token"]);
         res = true;
       } else {
-        print('Login failed: ${dataState.error!.message ?? "Unknown error"}');
+        if (kDebugMode) {
+          print('Login failed: ${dataState.error!.message ?? "Unknown error"}');
+        }
       }
     } catch (e) {
       // Handle login exception
-      print('Error during login : $e');
+      if (kDebugMode) {
+        print('Error during login : $e');
+      }
     }
 
     return res;
@@ -44,11 +49,15 @@ class AuthNotifier extends StateNotifier<AuthState> {
 
 
       } else {
-        print('Login failed: ${dataState.error!.message ?? "Unknown error"}');
+        if (kDebugMode) {
+          print('Login failed: ${dataState.error!.message ?? "Unknown error"}');
+        }
       }
     } catch (e) {
       // Handle login exception
-      print('Error during login : $e');
+      if (kDebugMode) {
+        print('Error during login : $e');
+      }
     }
 
     return res;

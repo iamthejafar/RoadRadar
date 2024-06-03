@@ -4,6 +4,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:roadradar/src/features/auth/data/data_source/remote/auth_api_service.dart';
 import 'package:roadradar/src/features/auth/domain/repository/auth_repo.dart';
 
@@ -27,7 +28,9 @@ class AuthRepositoryImpl implements AuthRepository {
             error: httpResponse.response.statusMessage));
       }
     } on DioException catch (e) {
-      print(e);
+      if (kDebugMode) {
+        print(e);
+      }
       return DataFailed(e);
     }
   }

@@ -29,8 +29,6 @@ class AppTheme {
       onSecondary: darkGrey,
       error: Colors.deepOrange,
       onError: white,
-      background: lightYellow,
-      onBackground: black,
       surface: mediumYellow,
       onSurface: black,
     ),
@@ -70,8 +68,8 @@ class AppTheme {
     ),
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
-        foregroundColor: const MaterialStatePropertyAll(deepBlue),
-        textStyle: MaterialStatePropertyAll(
+        foregroundColor: const WidgetStatePropertyAll(deepBlue),
+        textStyle: WidgetStatePropertyAll(
             TextStyle(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w400
@@ -82,32 +80,32 @@ class AppTheme {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         enableFeedback: true,
-        backgroundColor: MaterialStateProperty.resolveWith((states) {
-          if (states.contains(MaterialState.disabled)) {
+        backgroundColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.disabled)) {
             return null;
           } else {
             return mediumYellow;
           }
         }),
-        elevation: MaterialStateProperty.resolveWith((states) {
-          if (states.contains(MaterialState.disabled)) {
+        elevation: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.disabled)) {
             return 0;
           } else {
             return 1;
           }
         }),
-        foregroundColor: MaterialStateProperty.resolveWith((states) {
-          if (states.contains(MaterialState.disabled)) {
+        foregroundColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.disabled)) {
             return darkGrey.withOpacity(0.5);
           } else {
             return mediumBlue;
           }
         }),
-        overlayColor: MaterialStatePropertyAll(white.withOpacity(0.3)),
-        minimumSize: MaterialStatePropertyAll(Size(double.infinity, 35.h)),
-        shape: MaterialStatePropertyAll(
+        overlayColor: WidgetStatePropertyAll(white.withOpacity(0.3)),
+        minimumSize: WidgetStatePropertyAll(Size(double.infinity, 35.h)),
+        shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r))),
-        textStyle: MaterialStatePropertyAll(TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w400)),
+        textStyle: WidgetStatePropertyAll(TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w400)),
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
@@ -125,7 +123,7 @@ class AppTheme {
     ),
     iconButtonTheme: const IconButtonThemeData(
       style: ButtonStyle(
-        iconColor: MaterialStatePropertyAll(mediumBlue)
+        iconColor: WidgetStatePropertyAll(mediumBlue)
       )
     ),
     iconTheme: const IconThemeData(

@@ -53,12 +53,12 @@ class HomeScreen extends ConsumerWidget {
                        Align(
                          alignment: Alignment.centerRight,
                          child: Container(
-                           margin: EdgeInsets.symmetric(horizontal: 16,vertical: 5),
+                           margin: const EdgeInsets.symmetric(horizontal: 16,vertical: 5),
                            decoration: BoxDecoration(
                                color: deepBlue,
                                borderRadius: BorderRadius.circular(10)
                            ),
-                           padding: EdgeInsets.all(5),
+                           padding: const EdgeInsets.all(5),
                            child: Text("Enquire",style: textTheme.bodySmall!.copyWith(color: white),),
                          ),
                        )

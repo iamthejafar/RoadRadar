@@ -27,7 +27,7 @@ class _ExploreScreenScreenState extends State<ExploreScreen> {
         ),
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         decoration: BoxDecoration(
             color: mediumYellow,
             borderRadius: BorderRadius.only(
@@ -66,7 +66,7 @@ class _ExploreScreenScreenState extends State<ExploreScreen> {
                 ],
               ),
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.all(10),
               child:  AppTextField(
                 suffixIcon: Icon(Icons.search),

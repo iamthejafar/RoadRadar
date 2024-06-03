@@ -94,8 +94,8 @@ class _CustomImagePickerState extends ConsumerState<CustomImageGrid> {
           childAspectRatio: 1.0,
           onReorder: (oldImage, newImage) {
             setState(() {
-              final _reorderedImage = _pickedImages.removeAt(oldImage);
-              _pickedImages.insert(newImage, _reorderedImage);
+              final reorderedImage = _pickedImages.removeAt(oldImage);
+              _pickedImages.insert(newImage, reorderedImage);
               ref.read(pickedImageProvider(widget.providerId).notifier).setImages(_pickedImages);
             });
           },

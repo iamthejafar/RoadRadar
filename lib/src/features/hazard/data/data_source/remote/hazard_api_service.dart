@@ -1,7 +1,6 @@
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 import 'package:roadradar/src/constants/constants.dart';
-import 'package:roadradar/src/features/hazard/domain/entity/hazard.dart';
 
 import '../../model/hazard_model.dart';
 
