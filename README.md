@@ -1,9 +1,23 @@
-# roadradar
+# RoadRadar
 
-# About
- - Road safety and Hazard reporting system.
- - Full stack Mobile Application built with flutter and node.js
+RoadRadar is a road safety and hazard reporting application.
 
+## About
 
-   ![Road Radar Banner](https://github.com/iamthejafar/RoadRadar/assets/109048758/212447f9-6af7-43e4-8e3d-7d52177aed66)
+RoadRadar is a full-stack mobile application that helps users report and share road hazards to improve road safety.
 
+## Tech Stack
+
+- **Frontend:** Flutter  
+- **State Management:** Riverpod  
+- **Backend:** Node.js  
+- **Database:** MongoDB  
+- **Cloud:** AWS  
+
+## Architecture
+
+- Built using **Clean Architecture** for scalability and maintainability.
+
+## Backend Repository
+
+- https://github.com/iamthejafar/RoadRaadar-Backend
